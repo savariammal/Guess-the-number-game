@@ -1,19 +1,22 @@
-var guessnumber = document.getElementById("guessno");
-    var resultstatement = document.getElementById("result");
-    var scoreElement = document.getElementById("score");
-    var randomNumber = Math.floor(Math.random() * 10) + 1;
-    var totalscore = 10;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guess the Number</title>
+<link rel="stylesheet" href="style.css">
 
-    function check() {
-        var enterednumber = parseInt(guessnumber.value, 10);
-        if (randomNumber === enterednumber) {
-            console.log("Right");
-            resultstatement.textContent = "Right";
-            alert("You Won....");
-        } else {
-            totalscore -= 1;
-            scoreElement.textContent = "Score: " + totalscore;
-            resultstatement.textContent = "Wrong";
-            console.log("Wrong");
-        }
-    }
+</head>
+<body>
+<div class="container">
+    <h1>Guess the Number</h1>
+    <input type="number" id="guessno" placeholder="Enter your guess">
+    <button onclick="check()">Check</button>
+    <p id="result">Make a guess!</p>
+    <p id="score">Score: 10</p>
+</div>
+<script src="guess.js"></script>
+</body>
+</html>
+
+
