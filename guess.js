@@ -1,11 +1,11 @@
 
-var guessnumber = document.getElementById("guessno");
+    var guessnumber = document.getElementById("guessno");
     var resultstatement = document.getElementById("result");
     var scoreElement = document.getElementById("score");
     var winmessageElement=document.getElementById("win,message");
     var randomNumber = Math.floor(Math.random() * 10) + 1;
     var totalscore = 10;
-
+    
     function check() {
         var enterednumber = parseInt(guessnumber.value, 10);
     if(isNaN(enterednumber)||enterednumber<1||enterednumber>10)
@@ -18,21 +18,21 @@ var guessnumber = document.getElementById("guessno");
             //console.log("Right");
             resultstatement.textContent = "Right! You guessed the correct number";
             resultstatement.textContent=`Congratulations! You won a score of ${totalscore}`;
-            winmessageElement.style.color="green";
             alert("You Won....!");
-            resetGame();
+            setTimeout(function(){location.reload()},1000);
+           // resetGame();
         } 
         else 
         {
             totalscore -= 1;
             scoreElement.textContent = "Score: " + totalscore;
-            //resultstatement.textContent = "Wrong";
+            resultstatement.textContent = "Wrong";
            // console.log("Wrong");
         }
     if(totalscore<=0)
         {
             resultstatement.textContent="Game Over! You've used all your attempts";
-            //alert("Game Over! You;ve used all your attempts");
+            alert("Game Over! You've used all your attempts");
             resetGame();
         }
      else
@@ -55,7 +55,6 @@ var guessnumber = document.getElementById("guessno");
     scoreElement.textContent="Score:"+totalscore;
     resultstatement.textContent="";
     guessnumber.value="";
-    winmessageElement.style.color="";
  }
 
 
